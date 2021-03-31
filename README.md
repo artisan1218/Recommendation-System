@@ -49,8 +49,9 @@ Note: The Recommendation System will utilize the data from yelp.com
    2. user-based RMSE (test set): 0.9901023647008427
 
 ### Algorithm and Mathematical inference of the model
-1. Cosine Similarity: ![image](https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png)
+1. Cosine Similarity: 
 
+    ![image](https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png)
 3. Normalized Term Frequency: ![image](https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png)
 4. Inverse Document Frequency: ![image](https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png)
 5. TF-IDF score: ![image](https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png)
