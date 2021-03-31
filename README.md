@@ -50,15 +50,32 @@ Note: The Recommendation System will utilize the data from yelp.com
 
 ### Algorithm and Mathematical inference of the model
 1. Cosine Similarity: 
+
     ![image](https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png)
-3. Normalized Term Frequency: ![image](https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png)
-4. Inverse Document Frequency: ![image](https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png)
-5. TF-IDF score: ![image](https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png)
-6. Jaccard Similarity and distance: ![image](https://user-images.githubusercontent.com/25105806/113209494-fd8a2100-9227-11eb-8c88-3a22446cb77b.png)
-7. User-based CF Pearson Correlation: ![image](https://user-images.githubusercontent.com/25105806/113209564-12ff4b00-9228-11eb-91d3-55b961c97346.png)
-8. User-based CF prediction using Pearson Correlation: ![image](https://user-images.githubusercontent.com/25105806/113209629-26aab180-9228-11eb-9e0a-52fe12d8a423.png)
-9. Item-based CF Pearson Correlation: ![image](https://user-images.githubusercontent.com/25105806/113209694-3aeeae80-9228-11eb-972d-36476fc96b50.png)
-10. Item-based CF prediction using Pearson Correlation:![image](https://user-images.githubusercontent.com/25105806/113209749-49d56100-9228-11eb-8605-b1c7e48c0891.png)
+2. Normalized Term Frequency:
+    
+    ![image](https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png)
+3. Inverse Document Frequency: 
+  
+    ![image](https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png)
+4. TF-IDF score: 
+ 
+    ![image](https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png)
+5. Jaccard Similarity and distance: 
+ 
+    ![image](https://user-images.githubusercontent.com/25105806/113209494-fd8a2100-9227-11eb-8c88-3a22446cb77b.png)
+6. User-based CF Pearson Correlation: 
+ 
+    ![image](https://user-images.githubusercontent.com/25105806/113209564-12ff4b00-9228-11eb-91d3-55b961c97346.png)
+7. User-based CF prediction using Pearson Correlation: 
+
+    ![image](https://user-images.githubusercontent.com/25105806/113209629-26aab180-9228-11eb-9e0a-52fe12d8a423.png)
+8. Item-based CF Pearson Correlation: 
+ 
+    ![image](https://user-images.githubusercontent.com/25105806/113209694-3aeeae80-9228-11eb-972d-36476fc96b50.png)
+9. Item-based CF prediction using Pearson Correlation:
+    
+    ![image](https://user-images.githubusercontent.com/25105806/113209749-49d56100-9228-11eb-8605-b1c7e48c0891.png)
 
 
 
