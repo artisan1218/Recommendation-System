@@ -1,14 +1,8 @@
-
-
 from pyspark import SparkContext, SparkConf
 import json
 import math
 import time
 import sys
-
-
-# In[2]:
-
 
 startTime = time.time()
 
@@ -18,15 +12,9 @@ model_file = sys.argv[3]
 output_file = sys.argv[4]
 cf_type = sys.argv[5]
 
-
-# In[3]:
-
-
 conf = SparkConf().setMaster("local[*]")         .set("spark.executor.memory", "4g")         .set("spark.driver.memory", "4g")
 sc = SparkContext(conf=conf).getOrCreate()
 
-
-# In[4]:
 
 
 jsonLine_rdd = sc.textFile(train_file).map(lambda line:json.loads(line))
@@ -47,9 +35,6 @@ for bid in bid_index_rdd:
     index+=1
 
 
-# In[5]:
-
-
 def processSameUserSameBusMultiStars(pair):
     bidx_star_dict = dict()
     uidx = pair[0]
@@ -68,17 +53,7 @@ def processSameUserSameBusMultiStars(pair):
 def userBasedPred(pair):
     uidx = pair[0]
     bidx = pair[1]
-    '''
-    if type(uidx)==str or type(bidx)==str:
-        if type(uidx)==str:
-            prediction = sum(bidx_stars_dict[bidx]) / len(bidx_stars_dict[bidx])
-            return (uidx, bidx, prediction)
-        else: # bidx==UNK
-            uidx_all_rates = dict(uidx_bidx_star_dict[uidx]).values()
-            prediction = sum(uidx_all_rates) / len(uidx_all_rates)
-            return (uidx, bidx, prediction)
-    else:
-    '''
+    
     if uidx in uidx_bidx_star_dict.keys():
         uidx_all_rates = dict(uidx_bidx_star_dict[uidx]).values()
         r = sum(uidx_all_rates) / len(uidx_all_rates)
@@ -121,16 +96,7 @@ def userBasedPred(pair):
 def itemBasedPred(pair):
     uidx = pair[0]
     bidx = pair[1]
-    #if type(uidx)==str or type(bidx)==str:
-    #    if type(uidx)==str: #there is a new user 
-    #        uidx_star_list = bidx_uidx_star_dict[bidx]
-    #        prediction = sum(dict(uidx_star_list).values()) / len(uidx_star_list)
-    #        return (uidx, bidx, prediction)
-    #    else: # bidx==UNK, which means there is a new bus
-    #        uidx_all_rates = uidx_stars_dict[uidx]
-    #        prediction = sum(uidx_all_rates) / len(uidx_all_rates)
-    #        return (uidx, bidx, prediction)
-    #else:
+    
     # Use top N pearson cor that had rated bidx to copmute prediction
     neighbors_list = item_model_dict.get(bidx, [])
     if len(neighbors_list) == 0:
@@ -163,9 +129,6 @@ def itemBasedPred(pair):
         return (uidx, bidx, prediction)
 
 
-# In[ ]:
-
-
 if cf_type == 'user_based':
     predict_uidx_bidx_pairs = sc.textFile(test_file, 12).map(lambda x:json.loads(x))                    .map(lambda jsonLine:(jsonLine['user_id'], jsonLine['business_id']))                    .map(lambda pair:(uid2idx_dict.get(pair[0], -1), bid2idx_dict.get(pair[1], -1)))                    .filter(lambda pair: pair[0]!=-1 and pair[1]!=-1)
                     
@@ -196,9 +159,7 @@ else:
     
     uidx_bidx_star_dict = dict(jsonLine_rdd.map(lambda jLine:(jLine['user_id'], jLine['business_id'], jLine['stars']))                                 .map(lambda pair:(uid2idx_dict[pair[0]], (bid2idx_dict[pair[1]], pair[2])))                                 .groupByKey().mapValues(lambda listOfTuple:list(listOfTuple)).collect())
                                  
-    #uidx_stars_dict = dict(jsonLine_rdd.map(lambda jLine:(uid2idx_dict[jLine['user_id']], jLine['stars']))\
-    #                              .groupByKey().mapValues(lambda starsList:list(starsList)).collect())
-
+ 
     star_prediction = predict_uidx_bidx_pairs.map(lambda pair: itemBasedPred(pair)).collect()
 
     uidx2uid_dict = {v: k for k, v in uid2idx_dict.items()}
@@ -214,7 +175,6 @@ else:
 
 print('Duration:', str(time.time()-startTime))
 
-# In[ ]:
 
 
 
