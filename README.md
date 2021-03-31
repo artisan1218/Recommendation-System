@@ -30,3 +30,20 @@ Note: The Recommendation System will utilize the data from yelp.com
   * user_id and business_id stands for 'this user will likely rate this business with this star'
   * stars is simply the predicted rating 
 
+### Model and prediction accuracy/precision/recall/RMSE
+1. task1 similar business pairs 
+   1. precision: 1.0
+   2. recall: 0.9582400942205771
+2. task2 content-based RS
+   1. precision (test set): 1.0
+   2. recall (test set): 0.999469477863536
+3. task3 model
+   1. item-based CF model
+      1. precision: 0.9641450981844213
+      2. recall: 0.9805068470797926
+   2. user-based CF model
+      1. precision: 0.9573746593617223
+      2. recall: 0.8276633759390503
+4. task3 prediction
+   1. item-based RMSE (test set): 0.9023539405054186
+   2. user-based RMSE (test set): 0.9901023647008427
