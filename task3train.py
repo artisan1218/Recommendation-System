@@ -1,5 +1,3 @@
-
-
 from pyspark import SparkContext, SparkConf
 import itertools
 from collections import Counter
@@ -16,20 +14,11 @@ startTime = time.time()
 input_file_path = sys.argv[1]#r'C:\Users\11921\Downloads\data\train_review.json'
 model_file_path = sys.argv[2]
 cf_type = sys.argv[3]
-# In[3]:
-
 
 conf = SparkConf().setMaster("local[*]")         .set("spark.executor.memory", "4g")         .set("spark.driver.memory", "4g")
 sc = SparkContext(conf=conf).getOrCreate()
 
-
-# In[4]:
-
-
 jsonLine_rdd = sc.textFile(input_file_path).map(lambda line:json.loads(line))
-
-
-# In[5]:
 
 
 # Create id to index mapping in form of dict for user and businesss
@@ -38,10 +27,6 @@ uid_index_rdd = jsonLine_rdd.map(lambda jsonLine:jsonLine['user_id']).distinct()
 bid_index_rdd = jsonLine_rdd.map(lambda jsonLine:jsonLine['business_id']).distinct().zipWithIndex()
 uid_index_dict = uid_index_rdd.collectAsMap()
 bid_index_dict = bid_index_rdd.collectAsMap()
-
-
-# In[6]:
-
 
 def processSameBusSameUserMultiStars(busPair):
     user_star_dict = dict()

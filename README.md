@@ -5,6 +5,7 @@ Note: The Recommendation System will utilize the data from yelp.com
 - test_review.json – containing only the target user and business pairs for prediction tasks
 - test_review_ratings.json – containing the ground truth rating for the testing pairs
 - stopwords - containing common stopwords that will be used when calculating TFIDF score.
+- The file is preprocessed first using Apache Spark
 
 ### The Recommendation System will be divided into three tasks, each uses different algorithm to accomplish the recommendation. 
 * task1 will find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity

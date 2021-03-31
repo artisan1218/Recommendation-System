@@ -33,9 +33,6 @@ bus_reviews_rdd = sc.textFile(input_file_path).map(lambda line:json.loads(line))
 bus_reviews = bus_reviews_rdd.collect()
 
 
-# In[3]:
-
-
 # Obtain the non-rare words list / remove the extremely rare words
 # result_word_set is a set of non-rare words. Only words in this set can be used to calculate TFIDF
 word_cnt_list = list()
@@ -65,9 +62,6 @@ for pair in word_freq_dict.items():
 result_word_set = set(result_word)
 
 
-# In[4]:
-
-
 # Remove the non-rare words from the bus_reviews_rdd / Keep only the non-rare words
 def getNonRareWordList(bus_review):
     resultList = list()
@@ -82,16 +76,11 @@ review_list_rdd = bus_reviews_rdd.map(lambda bus_review:getNonRareWordList(bus_r
 #doc_reviewList = review_list_rdd.collect()
 
 
-# In[5]:
-
 
 # word_IDF_dict is a dict of unique words in all reviews and their corresponding IDF score
 num_docs = review_list_rdd.count()   
 word_IDF = review_list_rdd.map(lambda bid_wordList_tuple: [(word, 1) for word in set(bid_wordList_tuple[1])])                         .flatMap(lambda x:x).reduceByKey(lambda occu1,occu2:occu1+occu2)                         .map(lambda twoTuple:(twoTuple[0], math.log(num_docs/twoTuple[1],2))).collect()
 word_IDF_dict = dict(word_IDF)
-
-
-# In[6]:
 
 
 def calculateTFIDF(twoTuple):
@@ -111,9 +100,6 @@ def calculateTFIDF(twoTuple):
 TFIDF_rdd = review_list_rdd.map(lambda twoTuple:calculateTFIDF(twoTuple))
 
 
-# In[7]:
-
-
 word_index_dict = dict(TFIDF_rdd.map(lambda bus_words: [word_TFIDF[0] for word_TFIDF in bus_words[1]])                           .flatMap(lambda l:l).distinct().zipWithIndex().collect())
 
 
@@ -121,14 +107,8 @@ bus_profile = TFIDF_rdd.mapValues(lambda wordList:[word_index_dict[wordTuple[0]]
 bus_profile_dict = dict(bus_profile)
 
 
-# In[10]:
-
-
 user_profile = sc.textFile(input_file_path).map(lambda line:json.loads(line))                 .map(lambda jsonLine:(jsonLine['user_id'],jsonLine['business_id']))                 .groupByKey().mapValues(lambda x:list(set(x)))                 .mapValues(lambda busList:[bus_profile_dict[bus] for bus in busList])                 .mapValues(lambda bigL:[v for smallL in bigL for v in smallL])                 .mapValues(lambda l: list(set(l))).collect()
 user_profile_dict = dict(user_profile)
-
-
-# In[11]:
 
 
 modelFile = open(output_file_path,'w')
@@ -147,14 +127,7 @@ for bus in bus_profile_list:
     
 modelFile.close()
 
-
-# In[12]:
-
-
 print('Duration:', str(time.time()-startTime))
-
-
-# In[ ]:
 
 
 
