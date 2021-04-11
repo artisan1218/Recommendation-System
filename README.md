@@ -1,4 +1,4 @@
-# Recommendation-System (Content-based, Item-based Collaborative Filtering, User-based Collaborative Filtering)
+# Recommendation-System (Content-based, Item-based CF, User-based CF)
 
 Note: The Recommendation System will utilize the data from yelp.com
 - train_review.json – the main file that contains the review data, RS will primarily be working with this file. 
