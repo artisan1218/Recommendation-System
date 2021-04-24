@@ -52,7 +52,7 @@ Note: The Recommendation System will utilize the data from yelp.com
 ### Algorithm and Mathematical inference of the model
 1. Cosine Similarity: 
 
-    ![image](https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png)
+    <img src="https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png" width="50%" height="50%">
 2. Normalized Term Frequency:
     
     ![image](https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png)
