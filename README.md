@@ -8,44 +8,44 @@ Note: The Recommendation System will utilize the data from yelp.com
 - The file is preprocessed first using Apache Spark
 
 ### The Recommendation System will be divided into three tasks, each uses different algorithm to accomplish the recommendation. 
-* task1 will find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
-* task2 is the content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
-* task3 is the Collaborative Filtering Recommendation System which has two cases: Item-based CF and User-based CF.
+* Similar Items.py will find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
+* Content-based RS.py is the content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
+* CF is the Collaborative Filtering Recommendation System which has two cases: Item-based CF and User-based CF.
   1. Item-based CF: the RS is built by computing the Pearson correlation for the business pairs with at least three co-rated users and use 3 or 5 neighbors who are most similar to targeted business.
   2. User-based CF: MinHash and LSH is used first to identify similar users to reduce the number of pairs needed to compute Pearson Correlation. After identifying the similar users based on their jaccard similarity, RS will compute the Pearson Correlation for all candidates user pairs and make the prediction. 
 
 ### Output Demo
-* task1: ![image](https://user-images.githubusercontent.com/25105806/113206117-e9442500-9223-11eb-85f4-ce7f2cab3bbe.png)
+* Similar Items.py: ![image](https://user-images.githubusercontent.com/25105806/113206117-e9442500-9223-11eb-85f4-ce7f2cab3bbe.png)
   * b1 and b2 are the business id
   * sim is the jaccard similarity of b1 and b2
-* task2: ![image](https://user-images.githubusercontent.com/25105806/113206164-fb25c800-9223-11eb-8894-3f8b347bb113.png)
+* Content-based RS.py: ![image](https://user-images.githubusercontent.com/25105806/113206164-fb25c800-9223-11eb-8894-3f8b347bb113.png)
   * user_id and business_id pair means 'if a user would prefer to review a business'
   * sim is the calculated(predicted) cosine distance between the profile vectors.
-* task3 User-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206248-1264b580-9224-11eb-933b-f13deef2045d.png) 
+* CF User-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206248-1264b580-9224-11eb-933b-f13deef2045d.png) 
   * u1 and u2 are the user id
   * sim is the Pearson Correlation between these two users  
-* task3 Item-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206200-0547c680-9224-11eb-84dd-063e8a2413db.png)
+* CF Item-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206200-0547c680-9224-11eb-84dd-063e8a2413db.png)
   * b1 and b2 are the business id
   * sim is the Pearson Correlation between these two business  
-* task3 prediction result: ![image](https://user-images.githubusercontent.com/25105806/113206379-3d4f0980-9224-11eb-8511-25fcadccf637.png)
+* CF prediction result: ![image](https://user-images.githubusercontent.com/25105806/113206379-3d4f0980-9224-11eb-8511-25fcadccf637.png)
   * user_id and business_id stands for 'this user will likely rate this business with this star'
   * stars is simply the predicted rating 
 
 ### Model and prediction accuracy/precision/recall/RMSE
-1. task1 similar business pairs 
+1. Similar business pairs 
    1. precision: 1.0
    2. recall: 0.9582400942205771
-2. task2 content-based RS
+2. Content-based RS
    1. precision (test set): 1.0
    2. recall (test set): 0.999469477863536
-3. task3 model
+3. CF model
    1. item-based CF model
       1. precision: 0.9641450981844213
       2. recall: 0.9805068470797926
    2. user-based CF model
       1. precision: 0.9573746593617223
       2. recall: 0.8276633759390503
-4. task3 prediction
+4. CF prediction
    1. item-based RMSE (test set): 0.9023539405054186
    2. user-based RMSE (test set): 0.9901023647008427
 
