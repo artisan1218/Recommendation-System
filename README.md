@@ -15,16 +15,16 @@ Note: The Recommendation System will utilize the data from yelp.com
   2. User-based CF: MinHash and LSH is used first to identify similar users to reduce the number of pairs needed to compute Pearson Correlation. After identifying the similar users based on their jaccard similarity, RS will compute the Pearson Correlation for all candidates user pairs and make the prediction. 
 
 ### Output Demo
-* Similar Items.py: ![image](https://user-images.githubusercontent.com/25105806/113206117-e9442500-9223-11eb-85f4-ce7f2cab3bbe.png)
+* Similar Items: ![image](https://user-images.githubusercontent.com/25105806/113206117-e9442500-9223-11eb-85f4-ce7f2cab3bbe.png)
   * b1 and b2 are the business id
   * sim is the jaccard similarity of b1 and b2
-* Content-based RS.py: ![image](https://user-images.githubusercontent.com/25105806/113206164-fb25c800-9223-11eb-8894-3f8b347bb113.png)
+* Content-based RS: ![image](https://user-images.githubusercontent.com/25105806/113206164-fb25c800-9223-11eb-8894-3f8b347bb113.png)
   * user_id and business_id pair means 'if a user would prefer to review a business'
   * sim is the calculated(predicted) cosine distance between the profile vectors.
-* CF User-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206248-1264b580-9224-11eb-933b-f13deef2045d.png) 
+* User-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206248-1264b580-9224-11eb-933b-f13deef2045d.png) 
   * u1 and u2 are the user id
   * sim is the Pearson Correlation between these two users  
-* CF Item-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206200-0547c680-9224-11eb-84dd-063e8a2413db.png)
+* Item-based CF Pearson Correlation Model: ![image](https://user-images.githubusercontent.com/25105806/113206200-0547c680-9224-11eb-84dd-063e8a2413db.png)
   * b1 and b2 are the business id
   * sim is the Pearson Correlation between these two business  
 * CF prediction result: ![image](https://user-images.githubusercontent.com/25105806/113206379-3d4f0980-9224-11eb-8511-25fcadccf637.png)
