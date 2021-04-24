@@ -76,7 +76,7 @@ Note: The Recommendation System will utilize the data from yelp.com
     <img src="https://user-images.githubusercontent.com/25105806/113209694-3aeeae80-9228-11eb-972d-36476fc96b50.png" width="45%" height="45%">
 9. Item-based CF prediction using Pearson Correlation:
 
-    <img src="https://user-images.githubusercontent.com/25105806/113209749-49d56100-9228-11eb-8605-b1c7e48c0891.png" width="40%" height="40%">
+    <img src="https://user-images.githubusercontent.com/25105806/113209749-49d56100-9228-11eb-8605-b1c7e48c0891.png" width="30%" height="30%">
 
 
 
