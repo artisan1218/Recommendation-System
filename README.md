@@ -61,10 +61,10 @@ Note: The Recommendation System will utilize the data from yelp.com
     <img src="https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png" width="50%" height="50%">
 4. TF-IDF score: 
  
-    <img src="https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png" width="80%" height="80%">
+    <img src="https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png" width="35%" height="35%">
 5. Jaccard Similarity and distance: 
- 
-    ![image](https://user-images.githubusercontent.com/25105806/113209494-fd8a2100-9227-11eb-8c88-3a22446cb77b.png)
+
+    <img src="https://user-images.githubusercontent.com/25105806/113209494-fd8a2100-9227-11eb-8c88-3a22446cb77b.png" width="40%" height="40%">
 6. User-based CF Pearson Correlation: 
  
     ![image](https://user-images.githubusercontent.com/25105806/113209564-12ff4b00-9228-11eb-91d3-55b961c97346.png)
