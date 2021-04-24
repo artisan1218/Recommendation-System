@@ -55,10 +55,10 @@ Note: The Recommendation System will utilize the data from yelp.com
     <img src="https://user-images.githubusercontent.com/25105806/113209393-de8b8f00-9227-11eb-81be-64dc2cfe2ec4.png" width="50%" height="50%">
 2. Normalized Term Frequency:
     
-    ![image](https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png)
+    <img src="https://user-images.githubusercontent.com/25105806/113209177-91a7b880-9227-11eb-88a6-9380099b4c58.png" width="50%" height="50%">
 3. Inverse Document Frequency: 
   
-    ![image](https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png)
+    <img src="https://user-images.githubusercontent.com/25105806/113209263-ad12c380-9227-11eb-9bde-bb70acc556d1.png" width="50%" height="50%">
 4. TF-IDF score: 
  
     ![image](https://user-images.githubusercontent.com/25105806/113209289-b734c200-9227-11eb-903e-46e77396c2d5.png)
