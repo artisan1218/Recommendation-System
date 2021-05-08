@@ -34,6 +34,9 @@ Note: The Recommendation System will utilize the data from yelp.com
 * CF prediction result: ![image](https://user-images.githubusercontent.com/25105806/113206379-3d4f0980-9224-11eb-8511-25fcadccf637.png)
   * user_id and business_id stands for 'this user will likely rate this business with this star'
   * stars is simply the predicted rating 
+* Hybrid Recommendation System:
+  * Blind test set RMSE: 1.1498
+  * Test set RMSE: 1.14166
 
 ### Model and prediction accuracy/precision/recall/RMSE
 1. Similar business pairs 
