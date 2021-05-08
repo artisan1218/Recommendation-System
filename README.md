@@ -1,4 +1,4 @@
-# Recommendation-Systems
+# Recommendation Systems
 
 Note: The Recommendation System will utilize the data from yelp.com
 - train_review.json – the main file that contains the review data, RS will primarily be working with this file. 
