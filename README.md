@@ -14,6 +14,9 @@ Note: The Recommendation System will utilize the data from yelp.com
  2. Content-Based Recommendation Sys: The content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
  3. Finding Similar Items: Find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
  4. Hybrid Recommendation Sys: The hybrid recommendation system that utilizes several different model and produce the best result jointly. This project is also ranked the third place at USC Data Mining (Recommendaation System) Competition 2021 with final score of 2709 and RMSE of 1.1498
+ 
+       ![WeChat Screenshot_20210508111240](https://user-images.githubusercontent.com/25105806/117549290-5e0e3a00-afee-11eb-8326-023fde710f1b.png)
+
 
 ### Output Demo
 * Similar Items: ![image](https://user-images.githubusercontent.com/25105806/113206117-e9442500-9223-11eb-85f4-ce7f2cab3bbe.png)
