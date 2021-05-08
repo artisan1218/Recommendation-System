@@ -67,9 +67,6 @@ friends_output_path = "./friends_model.json"
 # }
 # `
 
-# In[4]:
-
-
 jsonLine_rdd = sc.textFile(train_file_path).map(lambda line:json.loads(line)).persist()
 
 # read in the user/bus mapping dict
@@ -89,10 +86,6 @@ else:
 uid2idx_dict = dict(uid_index_rdd.collect())
 bid2idx_dict = dict(bid_index_rdd.collect())
 
-
-# In[5]:
-
-
 def outputDictModel(id2idx_dict, path):
     model_writer = open(path, 'w')
     for ub_id in id2idx_dict:
@@ -102,21 +95,6 @@ def outputDictModel(id2idx_dict, path):
     
 outputDictModel(uid2idx_dict, uid2idx_output_path)
 outputDictModel(bid2idx_dict, bid2idx_output_path)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[6]:
 
 
 def getKnownFriendsList(friends_list):
@@ -137,30 +115,11 @@ friends = (sc.textFile(friends_path)
            .collectAsMap()
           )
 
-
-# In[7]:
-
-
 model_writer = open(friends_output_path, 'w')
 for user in friends:
     jLine = json.dumps({'u':user, 'friends':friends[user]})
     model_writer.write(jLine + '\n')
 model_writer.close()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[8]:
 
 
 user_avg_dict = (sc.textFile(user_avg_file)
@@ -179,9 +138,6 @@ bus_avg_dict = (sc.textFile(bus_avg_file)
 
 ALL_USER_AVG_RATING = sum(user_avg_dict.values())/len(user_avg_dict)
 ALL_BUS_AVG_RATING = sum(bus_avg_dict.values())/len(bus_avg_dict)
-
-
-# In[9]:
 
 
 # build the SVD algorithm using sklearn surprise
@@ -214,27 +170,6 @@ svd_model.fit(trainset)
 dump.dump(SVD_model_output_path, predictions=None, algo=svd_model)
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[10]:
-
-
 feature_names = ['uavg', 'bavg', 'useful', 'funny', 'cool', 'fans', 'elite', 'user_num', 'bus_num', 'rating']
 default_tuple = (0,0,0,0,0)
 
@@ -246,9 +181,6 @@ user_info_dict = (sc.textFile(user_file_path)
                                      )))
                  .collectAsMap()
                 )
-
-
-# In[11]:
 
 
 uidx_star_dict = (sc.textFile(train_file_path).map(lambda line:json.loads(line))
@@ -266,9 +198,6 @@ bidx_star_dict = (sc.textFile(train_file_path).map(lambda line:json.loads(line))
                        .mapValues(lambda listOfTuple:list(listOfTuple))
                        .collectAsMap()
                       )
-
-
-# In[12]:
 
 
 def getUserInfo(pair):
@@ -310,9 +239,6 @@ if use_test_gt:
     uidx_bidx_star_xgb.extend(gt_uidx_bidx_star_xgb)
 
 
-# In[14]:
-
-
 # convert uidx and bidx to avg rating and keep the original rating
 xgboost_training_data = list()
 for pair in uidx_bidx_star_xgb:
@@ -322,26 +248,14 @@ for pair in uidx_bidx_star_xgb:
 train_data_df = pd.DataFrame(xgboost_training_data, columns=feature_names)
 
 
-# In[15]:
-
-
 model = xgboost.XGBRegressor(booster='gbtree', max_depth=8, eta=0.47)
 model.fit(X=train_data_df.iloc[:,:-1], y=train_data_df.iloc[:,-1])
-
-
-# In[16]:
 
 
 pickle.dump(model, open(xgb_model_output_path, 'wb'))
 
 
-# In[17]:
-
-
 print('Duration:', str(time.time()-startTime))
-
-
-# In[ ]:
 
 
 
