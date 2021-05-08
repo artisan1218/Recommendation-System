@@ -18,7 +18,7 @@ Note: The Recommendation System will utilize the data from yelp.com
 ### Training process:
 Feature Augmentation is for the SVD model. Since we only have limited amount of training data, to better train the SVD model, I up-sampled the training set by randomly adding user-business-avg star pairs to current training set. Adding 300,000 pairs will yield a better result without overfitting the model.
 For the XGBoost model, the training features are all from user.json, through the test, these features are most useful among all others:
-`feature_names = ['uavg', 'bavg', 'useful', 'funny', 'cool', 'fans', 'elite', 'user_num', 'bus_num', 'rating']`, `uavg` is the average rating of this user, while `bavg` is simply the average rating this business ever received.\
+`feature_names = ['uavg', 'bavg', 'useful', 'funny', 'cool', 'fans', 'elite', 'user_num', 'bus_num', 'rating']`, `uavg` is the average rating of this user, while `bavg` is simply the average rating among all ratings that this business ever received.\
 Then I trained the rest of aforementioned models separately and save them to files, these files are:
  * bid2idx_dict_model.txt
  * uid2idx_dict_model.txt
