@@ -1,4 +1,4 @@
-# Hybrid Recommendation Systems
+# Hybrid Recommendation System
 
 Note: The Recommendation System will utilize the data from yelp.com
 - business_avg.json - containing the average rating for all businesses
@@ -12,7 +12,8 @@ Note: The Recommendation System will utilize the data from yelp.com
 ### Introduction
 
  1. My implementation of the recommendation system primarily uses Singular-Value-Decomposition (SVD), XGBoost, Up-sampling, User profile (Friends).
- 2. The hybrid approaches I used include Mixed Hybrid and Feature Augmentation. 
+ 2. Libraries and dependencies: XGBoost, Surprise, Sklearn
+ 3. The hybrid approaches I used include Mixed Hybrid and Feature Augmentation. 
 
 ### Training process:
 Feature Augmentation is for the SVD model. Since we only have limited amount of training data, to better train the SVD model, I up-sampled the training set by randomly adding user-business-avg star pairs to current training set. Adding 300,000 pairs will yield a better result without overfitting the model.
