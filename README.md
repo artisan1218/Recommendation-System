@@ -8,12 +8,12 @@ Note: The Recommendation System will utilize the data from yelp.com
 - The file is preprocessed first using Apache Spark
 
 ### The Recommendation System will be divided into four subfolders, each uses different algorithm to accomplish the recommendation. 
- 1. Collaborative Filtering: Collaborative Filtering Recommendation System that has two cases: Item-based CF and User-based CF.
+ 1. [Collaborative Filtering](https://github.com/artisan1218/Recommendation-System/tree/main/Collaborative%20Filtering): Collaborative Filtering Recommendation System that has two cases: Item-based CF and User-based CF.
     1. Item-based CF: the RS is built by computing the Pearson correlation for the business pairs with at least three co-rated users and use 3 or 5 neighbors who are most similar to targeted business.
     2. User-based CF: MinHash and LSH is used first to identify similar users to reduce the number of pairs needed to compute Pearson Correlation. After identifying the similar users based on their jaccard similarity, RS will compute the Pearson Correlation for all candidates user pairs and make the prediction. 
- 2. Content-Based Recommendation Sys: The content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
- 3. Finding Similar Items: Find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
- 4. Hybrid Recommendation Sys: The hybrid recommendation system that utilizes several different model and produce the best result jointly. This project is also ranked the third place at USC Data Mining (Recommendaation System) Competition 2021 with final score of 2709 and RMSE of 1.1498
+ 2. [Content-Based Recommendation Sys](https://github.com/artisan1218/Recommendation-System/tree/main/Content-based%20Rcommendation%20Sys): The content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
+ 3. [Finding Similar Items:](https://github.com/artisan1218/Recommendation-System/tree/main/Finding%20Similar%20Items) Find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
+ 4. [Hybrid Recommendation Sys](https://github.com/artisan1218/Recommendation-System/tree/main/Hybrid%20Recommendation%20Sys): The hybrid recommendation system that utilizes several different model and produce the best result jointly. This project is also ranked the third place at USC Data Mining (Recommendaation System) Competition 2021 with final score of 2709 and RMSE of 1.1498
  
        ![WeChat Screenshot_20210508111240](https://user-images.githubusercontent.com/25105806/117549290-5e0e3a00-afee-11eb-8326-023fde710f1b.png)
 
