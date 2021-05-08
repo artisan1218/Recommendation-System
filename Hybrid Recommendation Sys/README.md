@@ -12,7 +12,7 @@ Note: The Recommendation System will utilize the data from yelp.com
 ### Introduction
 
  1. My implementation of the recommendation system primarily uses Singular-Value-Decomposition (SVD), XGBoost, Up-sampling, User profile (Friends).
- 2. Libraries and dependencies: XGBoost, Surprise, Sklearn
+ 2. Libraries and dependencies: XGBoost, Surprise, Sklearn, PySpark
  3. The hybrid approaches I used include Mixed Hybrid and Feature Augmentation. 
 
 ### Training process:
