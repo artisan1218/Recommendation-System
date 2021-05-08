@@ -1,4 +1,4 @@
-# Recommendation-System
+# Recommendation-Systems
 
 Note: The Recommendation System will utilize the data from yelp.com
 - train_review.json – the main file that contains the review data, RS will primarily be working with this file. 
@@ -7,7 +7,7 @@ Note: The Recommendation System will utilize the data from yelp.com
 - stopwords - containing common stopwords that will be used when calculating TFIDF score.
 - The file is preprocessed first using Apache Spark
 
-### The Recommendation System will be divided into three tasks, each uses different algorithm to accomplish the recommendation. 
+### The Recommendation System will be divided into four subfolders, each uses different algorithm to accomplish the recommendation. 
 * Similar Items.py will find similar business pairs in the train_review.json file. Algorithms used are: MinHash and Locality Sensitive Hashing, Jaccard Similarity
 * Content-based RS.py is the content-based RS which will generate profiles from review texts for users and businesses in the train_review.json file. Algorithms used are: Calculation of TF-IDF score and Cosine Similarity.
 * CF is the Collaborative Filtering Recommendation System which has two cases: Item-based CF and User-based CF.
