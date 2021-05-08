@@ -11,10 +11,6 @@ from surprise import SVD, Reader, Dataset, dump
 import xgboost
 import pickle
 
-
-# In[2]:
-
-
 startTime = time.time()
 
 os.environ['PYSPARK_PYTHON'] = '/usr/local/bin/python3.6'
@@ -38,9 +34,6 @@ friends_file = "./friends_model.json"
 
 uid2idx_path = "./uid2idx_dict_model.txt"
 bid2idx_path = "./bid2idx_dict_model.txt"
-
-
-# In[4]:
 
 
 # read in the user/bus mapping dict
@@ -121,9 +114,6 @@ xgb_model = pickle.load(open(xgb_model_path, 'rb'))
 
 ALL_USER_AVG_RATING = sum(user_avg_dict.values())/len(user_avg_dict)
 ALL_BUS_AVG_RATING = sum(bus_avg_dict.values())/len(bus_avg_dict)
-
-
-# In[26]:
 
 
 def secondaryPred(uidx, bidx, friends_rating_method):
@@ -312,8 +302,6 @@ def xgb_predict(model, data_input, includeSecPred=True):
 # `\
 # These are the list of uidx, bidx pairs that we're going to predict
 
-# In[27]:
-
 
 # turn idx into int instead of str, so that we can easily distingush known and unknown id
 uid2idx_dict = dict([(pair[0], int(pair[1])) for pair in uid2idx_dict.items()]) 
@@ -374,10 +362,6 @@ elif model == 'mixed':
         prediction.append((svd[0], svd[1], mixed_rating))
     
 
-
-# In[28]:
-
-
 resultWriter = open(output_file_path, 'w')
 for pair in prediction:
     uid = uidx2id_dict.get(str(pair[0]), str(pair[0]))
@@ -385,9 +369,6 @@ for pair in prediction:
     jsonPair = {'user_id':uid, 'business_id':bid, 'stars':float(pair[2])}
     resultWriter.write(json.dumps(jsonPair) + '\n')
 resultWriter.close()
-
-
-# In[10]:
 
 
 print('Duration:', str(time.time()-startTime))
