@@ -40,6 +40,6 @@ In the prediction process, the primary model will be XGBoost, which is good enou
 The SVD and XGBoost will both predict on the same dataset and generate two prediction result, then I did a weighted sum of these two prediction results. SVD result will have a weight of 0.15 and XGBoost result will have a weight of 0.85. This way, I combined different recommenders together to generate a result jointly (Mixed Hybrid).
 
 ### Final result
-This project is ranked the third place at USC Data Mining (Recommendaation System) Competition 2021 with final score of 2709 and RMSE of 1.1498
+This project is ranked the third place at USC Data Mining (Recommendation System) Competition 2021 with final score of 2709 and RMSE of 1.1498
    ![image](https://user-images.githubusercontent.com/25105806/117549836-77fd4c00-aff1-11eb-82a6-0cfe6b925cd7.png)
 
